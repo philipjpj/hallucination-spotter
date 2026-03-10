@@ -5,7 +5,28 @@
 
 ---
 
+<<<<<<< HEAD
 ## Features
+=======
+## 🔑 API Keys & Privacy
+
+Your keys stay yours — always.
+
+> Any API key entered into this tool is used **exclusively in your browser**
+> to make direct requests to the respective AI service.
+
+- **Never transmitted** to external servers
+- **Never stored** beyond your current session
+- **Never used** for any purpose other than your own requests
+
+Close the tab and they're gone. Want to be extra sure? The app is a single HTML file — open it in any text editor and verify yourself.
+
+⚠️ Keep your keys private. Never share them publicly.
+
+---
+
+## ⚡ Features
+>>>>>>> 045462022c1fbbf05b821794f2bab5d145533625
 
 - **Claim-level classification** — every flagged sentence gets tagged as HIGH / MEDIUM / LOW risk
 - **Inline highlighting** — suspicious text annotated directly in the output with wavy underlines
