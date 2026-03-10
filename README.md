@@ -1,102 +1,127 @@
 # Hallucination Spotter
 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5-646cff?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Anthropic](https://img.shields.io/badge/Powered%20by-Anthropic%20API-6b4fbb)](https://docs.anthropic.com/)
+
 > Identify false, fabricated, or unverifiable statements in AI-generated content.  
-> Browser-based. No server. Powered by the Anthropic API.
+> Runs entirely in the browser — no server, no data sent anywhere except the Anthropic API.
 
 ---
 
-<<<<<<< HEAD
+## What it does
+
+Paste any AI-generated response into the tool and it will:
+
+- **Highlight suspicious claims** inline, directly in the text
+- **Classify each issue** as HIGH / MEDIUM / LOW risk
+- **Explain why** each claim might be wrong or unverifiable
+- **Give an overall verdict** — from clean to major issues
+
+Providing the original prompt that generated the response improves accuracy significantly.
+
+---
+
 ## Features
-=======
-## 🔑 API Keys & Privacy
 
-Your keys stay yours — always.
+| Feature | Details |
+|---|---|
+| Inline annotation | Suspicious passages underlined directly in the text |
+| Claim breakdown | Each flagged claim explained individually |
+| Adjustable sensitivity | Lenient / Balanced / Strict |
+| Model selection | Claude Sonnet 4 (accuracy) or Claude Haiku 4.5 (speed) |
+| No backend | API key used directly in the browser, never stored |
 
-> Any API key entered into this tool is used **exclusively in your browser**
-> to make direct requests to the respective AI service.
-
-- **Never transmitted** to external servers
-- **Never stored** beyond your current session
-- **Never used** for any purpose other than your own requests
-
-Close the tab and they're gone. Want to be extra sure? The app is a single HTML file — open it in any text editor and verify yourself.
-
-⚠️ Keep your keys private. Never share them publicly.
-
----
-
-## ⚡ Features
->>>>>>> 045462022c1fbbf05b821794f2bab5d145533625
-
-- **Claim-level classification** — every flagged sentence gets tagged as HIGH / MEDIUM / LOW risk
-- **Inline highlighting** — suspicious text annotated directly in the output with wavy underlines
-- **Prompt-aware** — paste the original prompt to sharpen context analysis
-- **Adjustable sensitivity:**
+**Sensitivity modes:**
 
 | Mode | Behavior |
-|------|----------|
+|---|---|
 | `LENIENT` | Flags only high-confidence hallucinations |
 | `BALANCED` | Recommended for most use cases |
 | `STRICT` | Flags anything suspicious or unverifiable |
-
-- **Model selection** — choose between Claude Sonnet 4 (accuracy) and Claude Haiku 4.5 (speed)
-
----
-
-## Stack
-
-- [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
-- [Anthropic API](https://docs.anthropic.com/) — no backend required, direct browser access
 
 ---
 
 ## Getting Started
 
+You need an [Anthropic API key](https://console.anthropic.com/) to use this tool.
+
 ```bash
-# 1. Clone the repo
-git clone https://github.com/your-username/hallucination-spotter.git
+# Clone the repo
+git clone https://github.com/philipjpj/hallucination-spotter.git
 cd hallucination-spotter
 
-# 2. Install dependencies
+# Install dependencies
 npm install
 
-# 3. Start the dev server
+# Start the dev server
 npm run dev
 ```
 
-Then open [http://localhost:5173](http://localhost:5173) in your browser.
-
-You'll need an [Anthropic API key](https://console.anthropic.com/) — paste it directly in the UI (it never leaves your browser).
-
----
-
-## Build for Production
-
-```bash
-npm run build
-npm run preview
-```
-
-The `dist/` folder can be deployed to any static host (Netlify, Vercel, GitHub Pages, etc.).
+Open [http://localhost:5173](http://localhost:5173) and paste your API key in the UI.
 
 ---
 
 ## Usage
 
-1. Paste AI-generated text into the input area
-2. *(Optional)* Paste the original prompt for better accuracy
-3. Select a sensitivity level and model
-4. Click **✦ Spot Hallucinations**
+1. Click **Set API Key** and paste your Anthropic API key
+2. Paste the AI-generated text you want to check
+3. *(Optional but recommended)* Paste the original prompt for better accuracy
+4. Choose a model and sensitivity level
+5. Click **✦ Spot Hallucinations**
+
+The key is never stored — it lives only in the page's memory for the duration of the session.
+
+---
+
+## Build & Deploy
+
+```bash
+npm run build    # outputs to dist/
+npm run preview  # preview the production build locally
+```
+
+The `dist/` folder is a fully static site — deploy it anywhere:
+
+- [Vercel](https://vercel.com/) — connect the repo, set build command to `npm run build`, output to `dist`
+- [Netlify](https://netlify.com/) — same settings
+- [GitHub Pages](https://pages.github.com/) — use the `gh-pages` package or a GitHub Action
+
+---
+
+## Project Structure
+
+```
+hallucination-spotter/
+├── index.html                     # HTML entry point
+├── vite.config.js                 # Vite configuration
+├── package.json
+├── .gitignore
+└── src/
+    ├── main.jsx                   # React root mount
+    └── HallucinationSpotter.jsx   # Main component
+```
+
+---
+
+## Stack
+
+- [React 18](https://react.dev/)
+- [Vite 5](https://vitejs.dev/)
+- [Anthropic Messages API](https://docs.anthropic.com/en/api/messages)
+
+No additional dependencies.
 
 ---
 
 ## Disclaimer
 
 This tool provides **guidance only** and may not detect all false statements.  
-Always verify critical information independently.
+Always verify critical information from primary sources independently.
 
 ---
 
 ## License
 
-MIT — free to use, modify, and distribute.
+[MIT](LICENSE) — free to use, modify, and distribute.
