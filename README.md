@@ -1,15 +1,16 @@
-# ⟨ Hallucination Spotter ⟩
+# Hallucination Spotter
 
-> Identify false, fabricated, or unverifiable statements in AI-generated content.
-> Browser-based. No setup. No server.
+> Identify false, fabricated, or unverifiable statements in AI-generated content.  
+> Browser-based. No server. Powered by the Anthropic API.
 
 ---
 
-## ⚡ Features
+## Features
 
-- **CRT-style interface** — retro aesthetics, built for focus
+- **Claim-level classification** — every flagged sentence gets tagged as HIGH / MEDIUM / LOW risk
+- **Inline highlighting** — suspicious text annotated directly in the output with wavy underlines
 - **Prompt-aware** — paste the original prompt to sharpen context analysis
-- **Adjustable sensitivity** — tune detection to your needs:
+- **Adjustable sensitivity:**
 
 | Mode | Behavior |
 |------|----------|
@@ -17,37 +18,64 @@
 | `BALANCED` | Recommended for most use cases |
 | `STRICT` | Flags anything suspicious or unverifiable |
 
-- **Claim-level classification** — every flagged sentence gets tagged:
-
-```
-[HIGH]    Very likely false or fabricated
-[MEDIUM]  Possibly wrong or misleading
-[LOW]     Minor inaccuracy or unverifiable but plausible
-```
-
-- **Inline highlighting** — suspicious text annotated directly in the output
+- **Model selection** — choose between Claude Sonnet 4 (accuracy) and Claude Haiku 4.5 (speed)
 
 ---
 
-## 💻 Usage
+## Stack
 
-```
-1. Open index.html in any modern browser
-2. Paste AI-generated text into the input area
-3. (Optional) Paste the original prompt for better accuracy
-4. Select a sensitivity level
-5. Click  [ INITIATE DECEPTION SCAN ]
-```
+- [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
+- [Anthropic API](https://docs.anthropic.com/) — no backend required, direct browser access
 
 ---
 
-## ⚠️ Disclaimer
+## Getting Started
 
-This tool provides **guidance only** and may not detect all false statements.
+```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/hallucination-spotter.git
+cd hallucination-spotter
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the dev server
+npm run dev
+```
+
+Then open [http://localhost:5173](http://localhost:5173) in your browser.
+
+You'll need an [Anthropic API key](https://console.anthropic.com/) — paste it directly in the UI (it never leaves your browser).
+
+---
+
+## Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+The `dist/` folder can be deployed to any static host (Netlify, Vercel, GitHub Pages, etc.).
+
+---
+
+## Usage
+
+1. Paste AI-generated text into the input area
+2. *(Optional)* Paste the original prompt for better accuracy
+3. Select a sensitivity level and model
+4. Click **✦ Spot Hallucinations**
+
+---
+
+## Disclaimer
+
+This tool provides **guidance only** and may not detect all false statements.  
 Always verify critical information independently.
 
 ---
 
-## 📝 License
+## License
 
 MIT — free to use, modify, and distribute.
